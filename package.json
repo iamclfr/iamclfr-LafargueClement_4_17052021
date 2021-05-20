@@ -1,0 +1,32 @@
+{
+  "name": "301dev",
+  "version": "1.0.0",
+  "description": "301DEV.COM",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch ./assets/sass/main.scss:./public/css/style.css --style compressed",
+    "prefix": "postcss ./public/css/style.css --use autoprefixer -d ./public/css/prefixed/"
+  },
+  "author": "301DEV.COM",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iamclfr/LafargueClement_4_17052021.git"
+  },
+  "keywords": [
+    "Orinoco",
+    "301dev",
+    "entreprise",
+    "commerce",
+    "ligne"
+  ],
+  "bugs": {
+    "url": "https://github.com/iamclfr/LafargueClement_4_17052021/issues"
+  },
+  "homepage": "https://github.com/iamclfr/LafargueClement_4_17052021#readme",
+  "dependencies": {
+    "bootstrap": "^5.0.1",
+    "prefixer": "0.0.3",
+    "sass": "^1.32.13"
+  }
+}
