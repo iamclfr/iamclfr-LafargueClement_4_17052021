@@ -1,4 +1,5 @@
-@import "./components/animated";
+@import "./base/bases";
 @import "./pages/index";
+@import "./pages/cart";
 @import "./utils/custom";
-@import "../../node_modules/bootstrap/scss/bootstrap";
+@import "./components/animated";

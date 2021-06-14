@@ -9,7 +9,7 @@
       <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
       <!-- SEO OpenGraph -->
       <meta property="og:locale" content="fr_FR" />
-      <meta property="og:title" content="Orinoco - Votre vendeur d'appareils photo vintage" />
+      <meta property="og:title" content="Mon profil - Orinoco" />
       <meta property="og:description" content="Orinoco, une entreprise de commerce en ligne. Achat d'appareils photo vintage." />
       <meta property="og:url" content="https://orinoco.301dev.com" />
       <meta property="og:site_name" content="Orinoco" />
@@ -18,8 +18,8 @@
       <meta property="og:image:width" content="215" />
       <meta property="og:image:height" content="40" />
       <meta name="twitter:card" content="summary_large_image" />
-      <link rel="shortcut icon" type="image/ico" href="./public/img/favicon.ico">
-      <title>Orinoco - Votre vendeur d'appareils photo vintage</title>
+      <link rel="shortcut icon" type="image/png" href="./public/img/favicon.ico">
+      <title>Mon profil - Orinoco</title>
       <link rel="stylesheet" href="/public/css/style.css">
       <!-- Bootstrap -->
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
@@ -27,6 +27,10 @@
       <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
       <!-- Scripts -->
+      <script src="./public/js/bases.js"></script>
+      <script type="module" src="/public/js/products.js" defer></script>
+      <script type="module" src="/public/js/single.js" defer></script>
+      <script type="module" src="/public/js/cart.js" defer></script>
       <script type="module" src="/public/js/animations.js"></script>
       <script src="https://unpkg.com/scrollreveal"></script>
    </head>
@@ -34,7 +38,7 @@
       <header id="header" class="sticky-top">
          <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
             <div class="container-fluid">
-               <a class="navbar-brand" href="/">Orinoco</a>
+               <a class="navbar-brand" href="/"> Orinoco</a>
                <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler">
                <span class="navbar-toggler-icon"></span>
                </button>
@@ -106,121 +110,15 @@
             </div>
          </nav>
       </header>
+
       <main id="main">
-         <div class="alert alert-dark alert-dismissible fade show position-fixed" style="right: 1em; top: 6em; z-index: 1;" role="alert">
-            <strong>J'aime aussi ce produit !</strong> Le Zurss 50s est dans votre Wishlist.
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-         </div>
-         <div class="alert alert-dark alert-dismissible fade show position-fixed" style="right: 1em; top: 6em; z-index: 1;" role="alert">
-            <strong>Beau lancé !</strong> Votre Zurss 50s est dans le panier.
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-         </div>
-         <div class="container-fluid bg-light subHeaderHero">
-            <div class="row align-items-center">
-               <div class="col-md-6 p-md-5">
-                  <h1 class="display-5 fw-bold">Orinoco</h1>
-                  <p class="fs-4">Votre vendeur spécialisé dans les appareils photo vintage. Imaginez, du matériel de qualité, disponible instantanément. Adaptez et calibrez votre matériel pour chaque projet, à chaque fois.</p>
-               </div>
-               <div class="col-md-6 p-md-5 p-sm-0 position-relative">
-                  <img src="/public/img/appareil-photo-vintage.png" alt="appareil photo vintage" width="100%" class="img-fluid subHeaderHero_img">
-                  <img src="./public/img/ombre.png" alt="ombre" width="100%" class="ombre">
-               </div>
-            </div>
-         </div>
-         <div class="container" id="products">
-            <h2 class="py-5 fw-bold display-6 text-uppercase">Appareils vintage</h2>
-            <div class="row row-cols-1 row-cols-md-3 g-4">
-               <div class="col">
-                  <a href="/product.html" class="text-decoration-none text-dark">
-                     <div class="card h-100">
-                        <img src="/public/img/appareil-photo-vintage.png" alt="appareil photo vintage" class="card-img-top">
-                        <div class="card-body">
-                           <h5 class="card-title">Card title</h5>
-                           <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        </div>
-                  </a>
-                  <div class="card-footer d-flex justify-content-between">
-                  <button type="button" class="btn btn-outline-dark w-100 me-3" onclick="window.location.href='/'">Ajouter au panier</button>
-                  <a href="#" class="d-flex align-items-center text-dark heart-like" title="Ajouter à ma Wishlist"><i class="bi bi-heart-fill"></i></a>
-                  </div>
-                  </div>
-               </div>
-               <div class="col">
-                  <a href="/product.html" class="text-decoration-none text-dark">
-                     <div class="card h-100">
-                        <img src="/public/img/appareil-photo-vintage.png" alt="appareil photo vintage" class="card-img-top">
-                        <div class="card-body">
-                           <h5 class="card-title">Card title</h5>
-                           <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        </div>
-                  </a>
-                  <div class="card-footer d-flex justify-content-between">
-                  <button type="button" class="btn btn-outline-dark w-100 me-3" onclick="window.location.href='/'">Ajouter au panier</button>
-                  <a href="#" class="d-flex align-items-center text-dark heart-like" title="Ajouter à ma Wishlist"><i class="bi bi-heart-fill"></i></a>
-                  </div>
-                  </div>
-               </div>
-               <div class="col">
-                  <a href="/product.html" class="text-decoration-none text-dark">
-                     <div class="card h-100">
-                        <img src="/public/img/appareil-photo-vintage.png" alt="appareil photo vintage" class="card-img-top">
-                        <div class="card-body">
-                           <h5 class="card-title">Card title</h5>
-                           <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        </div>
-                  </a>
-                  <div class="card-footer d-flex justify-content-between">
-                  <button type="button" class="btn btn-outline-dark w-100 me-3" onclick="window.location.href='/'">Ajouter au panier</button>
-                  <a href="#" class="d-flex align-items-center text-dark heart-like" title="Ajouter à ma Wishlist"><i class="bi bi-heart-fill"></i></a>
-                  </div>
-                  </div>
-               </div>
-               <div class="col">
-                  <a href="/product.html" class="text-decoration-none text-dark">
-                     <div class="card h-100">
-                        <img src="/public/img/appareil-photo-vintage.png" alt="appareil photo vintage" class="card-img-top">
-                        <div class="card-body">
-                           <h5 class="card-title">Card title</h5>
-                           <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        </div>
-                  </a>
-                  <div class="card-footer d-flex justify-content-between">
-                  <button type="button" class="btn btn-outline-dark w-100 me-3" onclick="window.location.href='/'">Ajouter au panier</button>
-                  <a href="#" class="d-flex align-items-center text-dark heart-like" title="Ajouter à ma Wishlist"><i class="bi bi-heart-fill"></i></a>
-                  </div>
-                  </div>
-               </div>
-               <div class="col">
-                  <a href="/product.html" class="text-decoration-none text-dark">
-                     <div class="card h-100">
-                        <img src="/public/img/appareil-photo-vintage.png" alt="appareil photo vintage" class="card-img-top">
-                        <div class="card-body">
-                           <h5 class="card-title">Card title</h5>
-                           <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        </div>
-                  </a>
-                  <div class="card-footer d-flex justify-content-between">
-                  <button type="button" class="btn btn-outline-dark w-100 me-3" onclick="window.location.href='/'">Ajouter au panier</button>
-                  <a href="#" class="d-flex align-items-center text-dark heart-like" title="Ajouter à ma Wishlist"><i class="bi bi-heart-fill"></i></a>
-                  </div>
-                  </div>
-               </div>
-            </div>
-         </div>
+
       </main>
+
       <footer class="footer mt-auto py-3 bg-dark mt-md-5">
-         <div class="container-fluid d-flex justify-content-between">
-            <div>
-               <a class="text-white mb-0 text-decoration-none logo-footer" href="#">Orinoco</a>
-            </div>
-            <div>
-               <a href="#" class="text-decoration-none text-light" style="font-family: 'Poppins';">Mentions Légales</a> <span class="text-light">|</span> <a href="https://301dev.com" target="_blank" class="text-decoration-none text-light" style="font-family: 'Poppins';">Développé par 301dev.com</a>
-            </div>
+         <div class="container-fluid">
+               <a class="text-white mb-0 text-decoration-none" href="#">Orinoco</a>
          </div>
       </footer>
-      <script type="text/javascript" src="./public/js/bases.js"></script>
-      <script type="text/javascript" src="/public/js/products.js" type="module"></script>
-      <script type="text/javascript" src="/public/js/single.js" type="module"></script>
-      <script type="text/javascript" src="/public/js/cart.js" type="module"></script>
    </body>
 </html>

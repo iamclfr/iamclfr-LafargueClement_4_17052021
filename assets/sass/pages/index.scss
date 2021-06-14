@@ -1,4 +1,15 @@
 #main {
+    .subHeaderHero {
+        align-items: center;
+        display: flex;
+        height: 55em;
+    }
+    .ombre {
+        position: absolute;
+        bottom: -1em;
+        right: 8em;
+        max-width: 75%;
+    }
     #products {
         .card {
             transition: all .2s ease-in-out;
@@ -6,6 +17,29 @@
                 box-shadow: 0 5px 15px#00000033;
                 transform: translateY(-5px);
             }
+        }
+    }
+}
+
+@media screen and (max-width: 800px) {
+    #main {
+        .subHeaderHero {
+            height: 35em;
+        }
+        .ombre {
+            right: 4em;
+            bottom: 0;
+        }
+    }
+}
+
+@media screen and (max-width: 460px) {
+    #main {
+        .subHeaderHero {
+            height: 48em;
+        }
+        .ombre {
+            bottom: -1em;
         }
     }
 }

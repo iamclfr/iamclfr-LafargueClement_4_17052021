@@ -1,0 +1,123 @@
+// FONTS
+@font-face {
+    font-family: "ZenDots";
+    src: url("../../../public/fonts/ZenDots-Regular.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Poppins";
+    src: url("../../../public/fonts/Poppins-Regular.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "PoppinsThin";
+    src: url("../../../public/fonts/Poppins-Thin.ttf");
+    font-weight: 100;
+    font-style: normal;
+}
+@font-face {
+    font-family: "PoppinsLight";
+    src: url("../../../public/fonts/Poppins-Light.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "PoppinsMedium";
+    src: url("../../../public/fonts/Poppins-Medium.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "PoppinsSemiBold";
+    src: url("../../../public/fonts/Poppins-SemiBold.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "PoppinsBold";
+    src: url("../../../public/fonts/Poppins-Bold.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "PoppinsExtraBold";
+    src: url("../../../public/fonts/Poppins-ExtraBold.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+* {
+    font-family: 'Poppins','PoppinsThing','PoppinsLight','PoppinsMedium','PoppinsSemiBold','PoppinsBold','PoppinsExtraBold';
+    box-sizing: border-box;
+}
+
+body {
+    nav {
+        a {
+            svg {
+                transition: all .2s ease-in-out;
+            }
+            &:hover {
+                svg {
+                    transform: scale(.8);
+                }
+            }
+        }
+    }
+    .navbar-brand {
+        font-family: 'ZenDots';
+        font-size: 25px;
+        img {
+            width: 100%;
+            max-width: 40%;
+            margin-top: -1em;
+        }
+    }
+    .dropdown-item.active, .dropdown-item:active {
+        background-color: #212529 !important;
+    }
+
+    h1 {
+        font-family: "ZenDots";
+    }
+
+    .max-text-length {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+    }
+
+    #products {
+        .col {
+            transition: all .2s ease-in-out;
+            &:hover {
+                transform: translateY(-10px);
+            }
+        }
+    }
+
+    .heart-like {
+        i {
+            transition: all .1s ease-in-out;
+            &:hover {
+                color: red;
+                transform: scale(1.3);
+            }
+        }
+    }
+}
+
+footer {
+    a {
+        font-family: 'ZenDots';
+    }
+}
+
+@media screen and (max-width: 600px) {
+    footer > div {
+       flex-direction: column !important;
+   }
+}

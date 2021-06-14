@@ -14,3 +14,24 @@
 		transform: translatey(0px);
 	}
 }
+
+.ombre {
+	animation: scaleOmbre 6s ease-in-out infinite;
+}
+
+@keyframes scaleOmbre {
+	0% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(1.2);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+
+// Apparition
+html.sr .card {
+    visibility: hidden;
+}
