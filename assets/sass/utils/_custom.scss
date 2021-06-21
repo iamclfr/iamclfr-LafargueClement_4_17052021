@@ -1,2 +1,10 @@
 // Custom button
 $btn-border-radius: none;
+
+@media all and (max-width: 600px) {
+    .dropdown-menu-end[data-bs-popper] {
+        right: -10em !important;
+        left: auto !important;
+        top: 1em !important;
+    }    
+}
