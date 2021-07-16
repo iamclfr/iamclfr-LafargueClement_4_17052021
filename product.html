@@ -112,12 +112,47 @@
       </header>
 
       <main id="main">
-         <div class="alert alert-dark alert-dismissible fade show position-fixed" style="right: 1em; top: 6em; z-index: 1;" role="alert">
-            <strong>Beau lancé !</strong> Votre Zurss 50s est dans le panier.
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-         </div>
+         <div class="toast position-absolute p-3 end-0" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+              <img src="./public/img/logo-orinoco.gif" class="rounded me-2" width="50" alt="Logo Orinoco">
+              <strong class="me-auto">Orinoco</strong>
+              <small class="text-muted">Il y a 2 secondes</small>
+              <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+              Le produit est dans votre panier !
+            </div>
+          </div>
          <div class="container d-flex justify-content-center" id="single-zone">
-            <!-- Single Product zone -->
+            <div id="5be1ed3f1c9d44000030b061" class="card" style="width: 40em;">
+               <img class="card-img-top" src="http://localhost:3000/images/vcam_1.jpg" alt="Zurss 50S">
+               <div class="card-header">
+                  <h3 class="card-title"></h3>
+                  <p class="card-text"></p>
+               </div>
+               <div class="card-body">
+                  <label class="h5" for="lensesSelector">Choix de la lentille</label>
+                  <select id="lensesSelector" class="form-select" name="lenses">
+                  </select>
+                  <hr>
+                  <div class="d-flex justify-content-between align-items-center">
+                     <h5 class="card-price"></h5>
+                     <div class="d-inline-flex align-items-center pe-1">
+                        <label for="quantitySelector">Quantité</label>
+                        <select id="quantitySelector" class="form-select ms-3" name="quantite">
+                           <option value="1">1</option>
+                           <option value="2">2</option>
+                           <option value="3">3</option>
+                           <option value="4">4</option>
+                           <option value="5">5</option>
+                        </select>
+                     </div>
+                  </div>
+               </div>
+               <div class="card-footer d-grid gap-2">
+                  <button id="btn-add-cart" class="btn btn-dark btn-outline-dark-hover">Ajouter au panier</button>
+               </div>
+            </div>
          </div>
       </main>
 

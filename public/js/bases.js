@@ -14,4 +14,12 @@ document.addEventListener('DOMContentLoaded',function(){
         elem.style.marginTop = '5em';
     }
     
+    document.addEventListener('click', function (clickHeart) {
+
+        if (!clickHeart.target.matches('.addWishlist i')) return;
+        clickHeart.preventDefault();
+        clickHeart.target.classList.toggle('active')
+        document.querySelector('#alertEvent').classList.add('show')
+    
+    }, false);
 });

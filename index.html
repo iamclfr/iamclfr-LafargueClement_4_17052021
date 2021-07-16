@@ -30,7 +30,8 @@
       <script type="text/javascript" src="./public/js/bases.js" defer></script>
       <script type="text/javascript" src="./public/js/config.js" type="module" defer></script>
       <script type="text/javascript" src="./public/js/products.js" type="module" defer></script>
-      <script type="text/javascript" src="./public/js/cart.js" type="module" defer></script>
+      <!-- <script type="module" src="/public/js/animations.js"></script>
+      <script src="https://unpkg.com/scrollreveal"></script> -->
    </head>
    <body>
       <header id="header" class="sticky-top">
@@ -109,9 +110,9 @@
          </nav>
       </header>
       <main id="main">
-         <div class="alert alert-dark alert-dismissible fade show position-fixed" style="right: 1em; top: 6em; z-index: 1;" role="alert">
-            <strong>J'aime aussi ce produit !</strong> Le Zurss 50s est dans votre Wishlist.
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+         <div id="alertEvent" class="alert alert-dark alert-dismissible fade position-fixed" style="right: 1em; top: 6em; z-index: 1;" role="alert">
+            <strong>J'aime aussi ce produit !</strong> Il est maintenant dans votre Wishlist.
+            <button type="button" class="btn-close" aria-label="Close" title="Fermer"></button>
          </div>
          <div class="container-fluid bg-light subHeaderHero">
             <div class="row align-items-center">
@@ -142,5 +143,36 @@
             </div>
          </div>
       </footer>
+      <template id="products-template">
+         <div class="col">
+               <div class="card h-100">
+                  <img class="card-img-top img-card" src="#">
+                  <div class="card-body">
+                     <h5 class="card-title"></h5>
+                     <p class="card-desc"></p>
+                  </div>
+                  <div class="card-footer d-flex justify-content-between">
+                     <a class="btn btn-outline-dark w-100 me-3 stretched-link" href="#">En savoir plus</a>
+                     <a class="addWishlist d-flex align-items-center text-dark heart-like" title="Ajouter à ma Wishlist"><i class="bi bi-heart-fill"></i></a>
+                  </div>
+               </div>
+         </div>
+      </template>
+      <template id="products-solde-template">
+         <div class="col">
+               <div class="card h-100">
+                  <span class="product-ribbon">Soldé</span>
+                  <img class="card-img-top img-card" src="#">
+                  <div class="card-body">
+                     <h5 class="card-title"></h5>
+                     <p class="card-desc"></p>
+                  </div>
+                  <div class="card-footer d-flex justify-content-between">
+                     <a class="btn btn-outline-dark w-100 me-3 stretched-link" href="#">En savoir plus</a>
+                     <a class="addWishlist d-flex align-items-center text-dark heart-like" title="Ajouter à ma Wishlist"><i class="bi bi-heart-fill"></i></a>
+                  </div>
+               </div>
+         </div>
+      </template>
    </body>
 </html>

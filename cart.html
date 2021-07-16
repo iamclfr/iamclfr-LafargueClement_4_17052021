@@ -110,9 +110,9 @@
          </nav>
       </header>
       <main id="main">
-         <div class="alert alert-dark alert-dismissible fade show position-fixed" style="right: 1em; top: 6em; z-index: 1;" role="alert">
+         <div id="alertEvent" class="alert alert-dark alert-dismissible fade show position-fixed" style="right: 1em; top: 6em; z-index: 1;" role="alert">
             <strong>Vous êtes génial !</strong> Votre commande est en cours de préparation.
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            <button type="button" class="btn-close" aria-label="Close" title="Fermer"></button>
          </div>
          <div class="container">
             <h2 class="pb-5 fw-bold display-6 text-uppercase">Récapitulatif de commande</h2>
@@ -171,13 +171,13 @@
                               <input class="form-control" type="tel" name="phone" id="telephone" placeholder="Téléphone">
                            </div>
                            <div class="col-md-12 mb-3">
-                              <input class="form-control" type="text" name="adress" id="adress" placeholder="Adresse" required>
+                              <input class="form-control" type="text" name="adress" id="adress" placeholder="Adresse *" required>
                            </div>
                            <div class="col-md-6">
-                              <input class="form-control" type="text" name="city" id="city" placeholder="Ville" required>
+                              <input class="form-control" type="text" name="city" id="city" placeholder="Ville *" required>
                            </div>
                            <div class="col-md-6 mb-3">
-                              <input class="form-control" type="text" name="citycode" id="citycode" placeholder="Code Postal" required>
+                              <input class="form-control" type="text" name="citycode" id="citycode" placeholder="Code Postal *" required>
                            </div>
                            <div class="col-md-12 d-flex justify-content-center">
                               <button type="button" class="btn btn-dark btn-outline-dark-hover px-5 py-2" onclick="window.location.href='/profile.html'">Valider</button>

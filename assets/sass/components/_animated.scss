@@ -31,7 +31,19 @@
 	}
 }
 
+@keyframes click {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.4);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
 // Apparition
-html.sr .card {
+.sr .card {
     visibility: hidden;
 }

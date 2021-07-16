@@ -104,11 +104,16 @@ body {
     }
 
     .heart-like {
+        z-index: 1;
+        cursor: pointer;
         i {
             transition: all .1s ease-in-out;
             &:hover {
                 color: red;
-                transform: scale(1.3);
+            }
+            &.active {
+                color: red;
+                animation: click .5s ease-in-out;
             }
         }
     }

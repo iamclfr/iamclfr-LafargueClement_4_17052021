@@ -13,7 +13,10 @@
     #products {
         .card {
             overflow: hidden;
+            position: relative;
             transition: all .2s ease-in-out;
+            border: none;
+            box-shadow: 0 5px 15px#00000033;
             &:hover {
                 box-shadow: 0 5px 15px#00000033;
                 transform: translateY(-5px);
@@ -22,6 +25,22 @@
                     filter: grayscale(0);
                     transform: scale(1.1);
                 }
+            }
+
+            .product-ribbon {
+                background-color: #fff;
+                color: #000;
+                position: absolute;
+                font-weight: bold;
+                z-index: 1;
+                padding: 1em 5.5em 1em 5.5em;
+                transform: rotate(-45deg);
+                top: 5%;
+                left: -38%;
+                box-shadow: #00000029 2px 2px 5px 0px;
+                width: 100%;
+                text-align: center;
+                text-transform: uppercase;
             }
 
             &-body {
