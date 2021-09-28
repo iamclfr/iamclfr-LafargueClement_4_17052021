@@ -30,8 +30,6 @@
       <script type="text/javascript" src="./public/js/bases.js" defer></script>
       <script type="text/javascript" src="./public/js/config.js" type="module" defer></script>
       <script type="text/javascript" src="./public/js/products.js" type="module" defer></script>
-      <!-- <script type="module" src="/public/js/animations.js"></script>
-      <script src="https://unpkg.com/scrollreveal"></script> -->
    </head>
    <body>
       <header id="header" class="sticky-top">
@@ -56,7 +54,7 @@
                         </a>
                      </li>
                      <li>
-                        <a href="/#products" class="nav-link text-white">
+                        <a href="#products" class="nav-link text-white">
                            <svg class="bi d-block mx-auto mb-1" width="24" height="24">
                               <use xlink:href="#navbarShop">
                                  <svg id="navbarShop" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-shop" viewBox="0 0 16 16">
@@ -69,7 +67,7 @@
                      </li>
                      <li>
                         <a href="/cart.html" class="nav-link text-white position-relative">
-                           <span class="badge-nb-product-card text-dark badge bg-light position-absolute end-0">2</span>
+                           <span id="productsCounter" class="badge-nb-product-card text-dark badge bg-light position-absolute end-0"></span>
                            <svg class="bi d-block mx-auto mb-1" width="24" height="24">
                               <use xlink:href="#navbarCart">
                                  <svg id="navbarCart" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-cart4" viewBox="0 0 16 16">
@@ -96,12 +94,12 @@
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownUser">
                            <li><a class="dropdown-item" href="/cart.html">Mon panier</a></li>
-                           <li><a class="dropdown-item" href="/wishlist.html">Ma Wishlist</a></li>
+                           <li><a class="dropdown-item" href="/order.html">Mes commandes</a></li>
                            <li><a class="dropdown-item" href="/profile.html">Mon profil</a></li>
                            <li>
                               <hr class="dropdown-divider">
                            </li>
-                           <li><a class="dropdown-item" href="#">Déconnection</a></li>
+                           <li><a id="logout" class="dropdown-item" href="#">Déconnection</a></li>
                         </ul>
                      </div>
                   </ul>
@@ -110,10 +108,6 @@
          </nav>
       </header>
       <main id="main">
-         <div id="alertEvent" class="alert alert-dark alert-dismissible fade position-fixed" style="right: 1em; top: 6em; z-index: 1;" role="alert">
-            <strong>J'aime aussi ce produit !</strong> Il est maintenant dans votre Wishlist.
-            <button type="button" class="btn-close" aria-label="Close" title="Fermer"></button>
-         </div>
          <div class="container-fluid bg-light subHeaderHero">
             <div class="row align-items-center">
                <div class="col-md-6 p-md-5">
@@ -129,7 +123,7 @@
          <div class="container" id="products">
             <h2 class="py-5 fw-bold display-6 text-uppercase">Appareils vintage</h2>
             <div class="row row-cols-1 row-cols-md-3 g-4" id="products-zone">
-               <!-- Products -->
+               <!-- PRODUCTS -->
             </div>
          </div>
       </main>
@@ -139,7 +133,7 @@
                <a class="text-white mb-0 text-decoration-none logo-footer" href="#">Orinoco</a>
             </div>
             <div>
-               <a href="#" class="text-decoration-none text-light" style="font-family: 'Poppins';">Mentions Légales</a> <span class="text-light">|</span> <a href="https://301dev.com" target="_blank" class="text-decoration-none text-light" style="font-family: 'Poppins';">Développé par 301dev.com</a>
+               <a href="#" class="text-decoration-none text-light" style="font-family: 'Poppins';">Mentions Légales</a> <span class="text-light">|</span> <a href="https://301dev.com" target="_blank" class="text-decoration-none text-light" style="font-family: 'Poppins';">Développé par Clément LAFARGUE</a>
             </div>
          </div>
       </footer>
@@ -153,7 +147,7 @@
                   </div>
                   <div class="card-footer d-flex justify-content-between">
                      <a class="btn btn-outline-dark w-100 me-3 stretched-link" href="#">En savoir plus</a>
-                     <a class="addWishlist d-flex align-items-center text-dark heart-like" title="Ajouter à ma Wishlist"><i class="bi bi-heart-fill"></i></a>
+                     <a class="addWishlist d-flex align-items-center text-dark heart-like" title="Ajouter à Mes commandes"><i class="bi bi-heart-fill"></i></a>
                   </div>
                </div>
          </div>
@@ -169,7 +163,7 @@
                   </div>
                   <div class="card-footer d-flex justify-content-between">
                      <a class="btn btn-outline-dark w-100 me-3 stretched-link" href="#">En savoir plus</a>
-                     <a class="addWishlist d-flex align-items-center text-dark heart-like" title="Ajouter à ma Wishlist"><i class="bi bi-heart-fill"></i></a>
+                     <a class="addWishlist d-flex align-items-center text-dark heart-like" title="Ajouter à Mes commandes"><i class="bi bi-heart-fill"></i></a>
                   </div>
                </div>
          </div>

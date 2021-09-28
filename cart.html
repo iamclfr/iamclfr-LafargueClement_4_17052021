@@ -69,7 +69,7 @@
                      </li>
                      <li>
                         <a href="/cart.html" class="nav-link text-white position-relative">
-                           <span class="badge-nb-product-card text-dark badge bg-light position-absolute end-0">2</span>
+                           <span id="productsCounter" class="badge-nb-product-card text-dark badge bg-light position-absolute end-0"></span>
                            <svg class="bi d-block mx-auto mb-1" width="24" height="24">
                               <use xlink:href="#navbarCart">
                                  <svg id="navbarCart" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-cart4" viewBox="0 0 16 16">
@@ -96,12 +96,12 @@
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownUser">
                            <li><a class="dropdown-item" href="/cart.html">Mon panier</a></li>
-                           <li><a class="dropdown-item" href="/wishlist.html">Ma Wishlist</a></li>
+                           <li><a class="dropdown-item" href="/order.html">Mes commandes</a></li>
                            <li><a class="dropdown-item" href="/profile.html">Mon profil</a></li>
                            <li>
                               <hr class="dropdown-divider">
                            </li>
-                           <li><a class="dropdown-item" href="#">Déconnection</a></li>
+                           <li><a id="logout" class="dropdown-item" href="#">Déconnection</a></li>
                         </ul>
                      </div>
                   </ul>
@@ -110,41 +110,22 @@
          </nav>
       </header>
       <main id="main">
-         <div id="alertEvent" class="alert alert-dark alert-dismissible fade show position-fixed" style="right: 1em; top: 6em; z-index: 1;" role="alert">
-            <strong>Vous êtes génial !</strong> Votre commande est en cours de préparation.
-            <button type="button" class="btn-close" aria-label="Close" title="Fermer"></button>
-         </div>
+         <div class="alert alert-warning d-none mx-2" id="formErrorAlert" role="alert" style="position: fixed; top: 6em; right: 0; z-index: 999;"><strong>Aiie !</strong> Les données saisies ne sont pas valides <span class="emojiWave">😲</span><button type="button" class="btn-close btn-close-warning" aria-label="Close"></button></div>
+         <div class="alert alert-success d-none mx-2" id="formSuccess" role="alert" style="position: fixed; top: 6em; right: 0; z-index: 999;"><strong>On se connaît... Non ?</strong> Toutes vos informations ont étaient enregistré <span class="emojiJump"> 😄</span><button type="button" class="btn-close btn-close-success" aria-label="Close"></button></div>
          <div class="container">
-            <h2 class="pb-5 fw-bold display-6 text-uppercase">Récapitulatif de commande</h2>
+            <h2 class="pb-5 fw-bold display-6 text-uppercase">Mon panier</h2>
          </div>
          <div class="container mb-5" id="cart-recap">
             <div class="card">
                <div class="card-header d-flex justify-content-between align-items-center">
                   <span>Mon panier</span>
-                  <button type="button" class="btn btn-dark btn-outline-dark-hover pull-right" onclick="window.location.href='/'">Continuer mon shopping</button>
+                  <button type="button" class="btn btn-dark btn-outline-dark-hover pull-right" onclick="window.location.href='/#products'">Continuer mon shopping</button>
                </div>
-               <div class="card-body text-center">
-                  <div class="row d-flex align-items-center">
-                     <div class="col-md-2"><img src="../public/img/appareil-photo-vintage.png" width="100%" alt="Appareil Photo Vintage"></div>
-                     <div class="col-md-2 fw-bold">Zurss 50S</div>
-                     <div class="col-md-2"><span class="input-number-decrement">–</span><input class="input-number" type="text" value="1" min="0" max="10"><span class="input-number-increment">+</span></div>
-                     <div class="col-md-2 fw-bold">499 €</div>
-                     <div class="col-md-2 fw-bold"><span class="badge bg-success">En Stock</span></div>
-                     <div class="col-md-2"><a href="#" class="text-dark"><i class="bi bi-trash"></i></a></div>
-                  </div>
-               </div>
-               <div class="card-body text-center">
-                  <div class="row d-flex align-items-center">
-                     <div class="col-md-2"><img src="../public/img/appareil-photo-vintage.png" width="100%" alt="Appareil Photo Vintage"></div>
-                     <div class="col-md-2 fw-bold">Zurss 50S</div>
-                     <div class="col-md-2"><span class="input-number-decrement">–</span><input class="input-number" type="text" value="1" min="0" max="10"><span class="input-number-increment">+</span></div>
-                     <div class="col-md-2 fw-bold">499 €</div>
-                     <div class="col-md-2 fw-bold"><span class="badge bg-success">En Stock</span></div>
-                     <div class="col-md-2"><a href="#" class="text-dark"><i class="bi bi-trash"></i></a></div>
-                  </div>
+               <div id="products-cart-zone">
+                  <!-- PRODUCTS -->
                </div>
                <div class="card-footer d-flex justify-content-end px-5">
-                  <span>Total : 998€</span>
+                  <span id="total-price"></span>
                </div>
             </div>
          </div>
@@ -157,32 +138,34 @@
                         <button type="button" class="btn btn-dark btn-outline-dark-hover pull-right" onclick="window.location.href='/profile.html'">Voir mon profil</button>
                      </div>
                      <div class="card-body">
-                        <div class="row">
-                           <div class="col-md-6">
-                              <input class="form-control" type="text" name="lastname" id="lastname" placeholder="Nom *" required>
+                        <form id="formProfile" method="POST" action="">
+                           <div class="row">
+                              <div class="col-md-6">
+                                 <input class="form-control" type="text" name="lastname" id="lastname" placeholder="Nom" disabled required>
+                              </div>
+                              <div class="col-md-6 mb-3">
+                                 <input class="form-control" type="text" name="firstname" id="firstname" placeholder="Prénom" disabled required>
+                              </div>
+                              <div class="col-md-6">
+                                 <input class="form-control" type="email" name="email" id="email" placeholder="Email" disabled required>
+                              </div>
+                              <div class="col-md-6 mb-3">
+                                 <input class="form-control" type="tel" minlength="10" maxlength="10" name="phone" id="phone" placeholder="Téléphone" required>
+                              </div>
+                              <div class="col-md-12 mb-3">
+                                 <input class="form-control" type="text" name="adress" id="adress" placeholder="Adresse" required>
+                              </div>
+                              <div class="col-md-6">
+                                 <input class="form-control" type="text" name="city" id="city" placeholder="Ville" required>
+                              </div>
+                              <div class="col-md-6 mb-3">
+                                 <input class="form-control" type="text" minlength="5" maxlength="5" name="citycode" id="citycode" placeholder="Code Postal" required>
+                              </div>
+                              <div class="col-md-12 d-flex justify-content-center">
+                                 <button id="btnCreateProfile" type="submit" class="btn btn-dark btn-outline-dark-hover px-5 py-2">Modifier mes informations</button>
+                              </div>
                            </div>
-                           <div class="col-md-6 mb-3">
-                              <input class="form-control" type="text" name="firstname" id="firstname" placeholder="Prénom *" required>
-                           </div>
-                           <div class="col-md-6">
-                              <input class="form-control" type="email" name="email" id="email" placeholder="Email *" required>
-                           </div>
-                           <div class="col-md-6 mb-3">
-                              <input class="form-control" type="tel" name="phone" id="telephone" placeholder="Téléphone">
-                           </div>
-                           <div class="col-md-12 mb-3">
-                              <input class="form-control" type="text" name="adress" id="adress" placeholder="Adresse *" required>
-                           </div>
-                           <div class="col-md-6">
-                              <input class="form-control" type="text" name="city" id="city" placeholder="Ville *" required>
-                           </div>
-                           <div class="col-md-6 mb-3">
-                              <input class="form-control" type="text" name="citycode" id="citycode" placeholder="Code Postal *" required>
-                           </div>
-                           <div class="col-md-12 d-flex justify-content-center">
-                              <button type="button" class="btn btn-dark btn-outline-dark-hover px-5 py-2" onclick="window.location.href='/profile.html'">Valider</button>
-                           </div>
-                        </div>
+                        </form>
                      </div>
                      <div class="card-footer">
                         <span class=" small">* Toutes ces informations sont stockées localement sur votre machine. Orinoco n'enregistre aucune de ces données.</span>
@@ -193,18 +176,17 @@
                   <div class="card h-100">
                      <div class="card-header d-flex justify-content-between align-items-center">
                         <span>Procéder au paiement</span>
-                        <button type="button" class="btn btn-dark btn-outline-dark-hover pull-right" onclick="window.location.href='/wishlist.html'">Ma Wishlist</button>
                      </div>
                      <div class="card-body d-flex align-items-center">
                         <div class="row">
                            <div class="col-md-12 d-flex justify-content-center">
-                              <button type="button" class="btn btn-dark btn-outline-dark-hover px-5 py-3 w-100 mb-3" onclick="window.location.href='/cart.html#carte-banquaire'">Carte bancaire</button>
+                              <button type="button" class="btn btn-dark btn-outline-dark-hover btn-confirm-purchase-card px-5 py-3 w-100 mb-3" onclick="window.location.href='/confirm.html'">Carte bancaire</button>
                            </div>
                            <div class="col-md-12 d-flex justify-content-center">
-                              <button type="button" class="btn btn-dark btn-outline-dark-hover px-5 py-3 w-100 mb-3" onclick="window.location.href='/cart.html#paypal'">PayPal</button>
+                              <button type="button" class="btn btn-dark btn-outline-dark-hover btn-confirm-purchase-paypal px-5 py-3 w-100 mb-3" onclick="window.location.href='/confirm.html'">PayPal</button>
                            </div>
                            <div class="col-md-12 d-flex justify-content-center">
-                              <button type="button" class="btn btn-dark btn-outline-dark-hover px-5 py-3 w-100 mb-3" onclick="window.location.href='/cart.html#cheque'">Chèque</button>
+                              <button type="button" class="btn btn-dark btn-outline-dark-hover btn-confirm-purchase-check px-5 py-3 w-100 mb-3" onclick="window.location.href='/confirm.html'">Chèque</button>
                            </div>
                         </div>
                      </div>
@@ -222,9 +204,21 @@
                <a class="text-white mb-0 text-decoration-none logo-footer" href="#">Orinoco</a>
             </div>
             <div>
-               <a href="#" class="text-decoration-none text-light" style="font-family: 'Poppins';">Mentions Légales</a> <span class="text-light">|</span> <a href="https://301dev.com" target="_blank" class="text-decoration-none text-light" style="font-family: 'Poppins';">Développé par 301dev.com</a>
+               <a href="#" class="text-decoration-none text-light" style="font-family: 'Poppins';">Mentions Légales</a> <span class="text-light">|</span> <a href="https://301dev.com" target="_blank" class="text-decoration-none text-light" style="font-family: 'Poppins';">Développé par Clément LAFARGUE</a>
             </div>
          </div>
       </footer>
+      <template id="cart-template">
+         <div class="card-body text-center">
+            <div class="row d-flex align-items-center">
+               <div class="col-md-2"><img src="#" class="img-cart" width="100%" alt="#"></div>
+               <div class="col-md-2 fw-bold cart-product-name"></div>
+               <div class="col-md-2"><input class="input-number" type="text" value="" min="0" max="10"></div>
+               <div class="col-md-2 fw-bold cart-product-price"></div>
+               <div class="col-md-2 fw-bold"><span class="badge bg-success">En Stock</span></div>
+               <div class="col-md-2"><a href="#" id="#" class="text-dark product-cart-trash"><i class="bi bi-trash"></i></a></div>
+            </div>
+         </div>
+      </template>
    </body>
 </html>

@@ -1,18 +1,3 @@
-document.addEventListener('DOMContentLoaded',function(){
-
-  console.log('animations.js loaded')
-  
-});
-
-// ScrollReveal().reveal('.nav .nav-link', {
-//   interval: 100,
-//   duration: 350,
-//   opacity: 0,
-//   origin: 'rigth',
-//   scale: 0.95,
-//   easing: 'ease-in-out'
-// });
-
 ScrollReveal().reveal('.subHeaderHero_img', {
   duration: 500,
   opacity: 0,
@@ -37,5 +22,5 @@ ScrollReveal().reveal('.card', {
   origin: 'bottom',
   scale: 0.90,
   easing: 'ease-in-out',
-  reset: true
+  reset: false
 });

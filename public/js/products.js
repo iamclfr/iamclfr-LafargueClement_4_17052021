@@ -1,21 +1,8 @@
-document.addEventListener('DOMContentLoaded', function() {
+window.addEventListener('load', () => {
 
   // Variables
   var dateNow = Date.now();
   var soldeEnd = 1627344001000;
-
-  console.log(
-      '%cproducts.js loaded',
-      'color: green',
-  );
-  console.log(
-      '%cDate d\'aujourd\'hui : ' + dateNow,
-      'color: yellow',
-  );
-  console.log(
-      '%cDate Fin Des Soldes : ' + soldeEnd,
-      'color: yellow',
-  );
 
   // Récupération des produits via l'API
   ;(async function() {
@@ -23,13 +10,12 @@ document.addEventListener('DOMContentLoaded', function() {
       let response = await fetch(apiUrl)
       if (response.ok) {
         let cameras = await response.json()
-        console.log(cameras) // DEV ONLY
 
-        const productsZone = document.getElementById('products-zone')
+        const productsZone = document.querySelector('#products-zone')
 
-        const productsTemplate = document.getElementById('products-template')
+        const productsTemplate = document.querySelector('#products-template')
 
-        const productsTemplateSolde = document.getElementById('products-solde-template')
+        const productsTemplateSolde = document.querySelector('#products-solde-template')
 
         for (let camera of cameras) {
           if (dateNow < soldeEnd) {
@@ -57,7 +43,18 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     } catch (error) {
         console.log("Erreur : " + error)
+        const productsZone = document.querySelector('#products')
+            productsZone.insertAdjacentHTML('beforeend',`<div class="alert alert-warning" role="alert" style="margin:1em;"><strong>Aiie !</strong> Impossible d'afficher les produits de la boutique, merci de réessayer ultérieurement</div>`)
     }
   })()
 
 });
+
+window.addEventListener('scroll', function() {
+  let scrolled = window.pageYOffset
+  const subHeaderHero = document.querySelector('.subHeaderHero')
+  const subHeaderHeroImg = document.querySelector('.subHeaderHero_img')
+  subHeaderHero.style.marginBottom = - (scrolled * 0.4) + 'px';
+  subHeaderHeroImg.style.marginTop = (scrolled * 0.3) + 'px';
+  // console.log(scrolled)
+})

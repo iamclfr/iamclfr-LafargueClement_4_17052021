@@ -30,9 +30,8 @@
       <script type="text/javascript" src="./public/js/bases.js" defer></script>
       <script type="text/javascript" src="./public/js/config.js" type="module" defer></script>
       <script type="text/javascript" src="./public/js/single.js" type="module" defer></script>
-      <script type="text/javascript" src="./public/js/cart.js" type="module" defer></script>
-      <!-- <script type="module" src="/public/js/animations.js"></script>
-      <script src="https://unpkg.com/scrollreveal"></script> -->
+      <script type="module" src="/public/js/animations.js"></script>
+      <script src="https://unpkg.com/scrollreveal"></script>
    </head>
    <body>
       <header id="header" class="sticky-top">
@@ -70,7 +69,7 @@
                      </li>
                      <li>
                         <a href="/cart.html" class="nav-link text-white position-relative">
-                           <span class="badge-nb-product-card text-dark badge bg-light position-absolute end-0">2</span>
+                           <span id="productsCounter" class="badge-nb-product-card text-dark badge bg-light position-absolute end-0"></span>
                            <svg class="bi d-block mx-auto mb-1" width="24" height="24">
                               <use xlink:href="#navbarCart">
                                  <svg id="navbarCart" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-cart4" viewBox="0 0 16 16">
@@ -97,12 +96,12 @@
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownUser">
                            <li><a class="dropdown-item" href="/cart.html">Mon panier</a></li>
-                           <li><a class="dropdown-item" href="/wishlist.html">Ma Wishlist</a></li>
+                           <li><a class="dropdown-item" href="/order.html">Mes commandes</a></li>
                            <li><a class="dropdown-item" href="/profile.html">Mon profil</a></li>
                            <li>
                               <hr class="dropdown-divider">
                            </li>
-                           <li><a class="dropdown-item" href="#">Déconnection</a></li>
+                           <li><a id="logout" class="dropdown-item" href="#">Déconnection</a></li>
                         </ul>
                      </div>
                   </ul>
@@ -110,21 +109,16 @@
             </div>
          </nav>
       </header>
-
       <main id="main">
-         <div class="toast position-absolute p-3 end-0" role="alert" aria-live="assertive" aria-atomic="true">
-            <div class="toast-header">
-              <img src="./public/img/logo-orinoco.gif" class="rounded me-2" width="50" alt="Logo Orinoco">
-              <strong class="me-auto">Orinoco</strong>
-              <small class="text-muted">Il y a 2 secondes</small>
-              <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-            </div>
-            <div class="toast-body">
-              Le produit est dans votre panier !
-            </div>
-          </div>
+         <div class="alert alert-warning d-none mx-2" id="formErrorAlert" role="alert" style="position: fixed; top: 6em; right: 0; z-index: 999;"><strong>Aiie !</strong> Les données saisies ne sont pas valides <span class="emojiWave">😲</span><button type="button" class="btn-close btn-close-warning" aria-label="Close"></button></div>
+         <div class="alert alert-success d-none mx-2" id="formSuccess" role="alert" style="position: fixed; top: 6em; right: 0; z-index: 999;"><strong>On se connaît... Non ?</strong> Toutes vos informations ont étaient enregistré <span class="emojiJump"> 😄</span><button type="button" class="btn-close btn-close-success" aria-label="Close"></button></div>
+         <div class="alert alert-success d-none mx-2" id="formSuccessPayment" role="alert" style="position: fixed; top: 6em; right: 0; z-index: 999;"><strong>C'est dans la boite !</strong> Votre commande a bien était prise en compte ! <span class="emojiJump"> 😄</span><button type="button" class="btn-close btn-close-success" data-bs-dismiss="alert" aria-label="Close"></button></div>
+         <a href="/" id="backtohome">
+            <i class="bi bi-arrow-left-square"></i>
+            Retourner sur la boutique
+         </a>
          <div class="container d-flex justify-content-center" id="single-zone">
-            <div id="5be1ed3f1c9d44000030b061" class="card" style="width: 40em;">
+            <div id="#" class="card" style="width: 40em;">
                <img class="card-img-top" src="http://localhost:3000/images/vcam_1.jpg" alt="Zurss 50S">
                <div class="card-header">
                   <h3 class="card-title"></h3>
@@ -162,7 +156,7 @@
                <a class="text-white mb-0 text-decoration-none logo-footer" href="#">Orinoco</a>
             </div>
             <div>
-               <a href="#" class="text-decoration-none text-light" style="font-family: 'Poppins';">Mentions Légales</a> <span class="text-light">|</span> <a href="https://301dev.com" target="_blank" class="text-decoration-none text-light" style="font-family: 'Poppins';">Développé par 301dev.com</a>
+               <a href="#" class="text-decoration-none text-light" style="font-family: 'Poppins';">Mentions Légales</a> <span class="text-light">|</span> <a href="https://301dev.com" target="_blank" class="text-decoration-none text-light" style="font-family: 'Poppins';">Développé par Clément LAFARGUE</a>
             </div>
          </div>
       </footer>
